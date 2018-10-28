@@ -16,6 +16,17 @@ class _template extends Controller
   public function index()
   {
   	dd($this->userRepository->query->toSql());
+  	$template['title'] = 'Test title';
+  	$template['title-breadcrumb'] = 'Test title';
+  	$template['breadcrumbs'] = [
+  		[
+  			'name' => 'Library',
+  			'link' => 'link',
+  			'active' => true
+  		],
+  	];
+    
+  	return view('back.index', compact('template'));
     return view('home');
   }
 }
