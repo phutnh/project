@@ -1,0 +1,3 @@
+.dt-nowarp th, td {
+  white-space: nowrap !important;
+}

@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Repositories\Repository\UserRepository;
+use App\Models\User as UserModel;
 
 class _template extends Controller
 {
-	protected $userRepository = '';
+	protected $userModel = '';
 
-	public function __construct(UserRepository $userRepository)
-	{
-		$this->userRepository = $userRepository;
-	}
+  public function __construct(UserModel $userModel)
+  {
+    $this->userRepository = $userRepository;
+  }
 
   public function index()
   {
-  	dd($this->userRepository->query->toSql());
+  	dd($this->userModel->toSql());
   	$template['title'] = 'Test title';
   	$template['title-breadcrumb'] = 'Test title';
   	$template['breadcrumbs'] = [
