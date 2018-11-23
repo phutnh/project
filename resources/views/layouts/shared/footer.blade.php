@@ -1,4 +1,4 @@
-<footer class="main-footer">
+<footer class="main-footer" id="main-footer">
   <div class="pull-right hidden-xs">
     Share with you
   </div>

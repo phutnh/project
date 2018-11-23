@@ -1,4 +1,4 @@
-<section class="content-header">
+<section class="content-header" id="content-header">
   <h1>
     {{ $template['pageHeader'] }}
     <small>{{ $template['pageDesc'] }}</small>

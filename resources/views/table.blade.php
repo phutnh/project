@@ -11,7 +11,7 @@ $(document).ready(function() {
 </script>
 @endsection
 @section('content')
-<div class="box box-primary">
+<div class="box box-primary no-margin-bottom">
   <div class="box-header with-border">
     <h3 class="box-title">Title</h3>
     <div class="box-tools pull-right">

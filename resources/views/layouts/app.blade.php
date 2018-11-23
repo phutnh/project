@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/layout.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/skin-blue.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
   @yield('styles')

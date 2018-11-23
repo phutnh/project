@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 use App\Models\User as UserModel;
+use Datatables;
 
 class UserRepository
 {
@@ -12,13 +13,13 @@ class UserRepository
 		$this->userModel = $userModel;
 	}
 
-	public function model()
-	{
-		return $this->userModel;
-	}
-
 	public function create($data)
 	{
 		$this->userModel->create();
+	}
+
+	public function getDataTable()
+	{
+		
 	}
 }

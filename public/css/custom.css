@@ -1,3 +1,7 @@
 .dt-nowarp th, td {
   white-space: nowrap !important;
 }
+
+.no-margin-bottom {
+	margin-bottom: 0 !important;
+}

@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
   public function index()
   {
+    $this->authorize('can-view');
   	$template['pageHeader'] = 'Quản lý';
     $template['pageDesc'] = 'Trang chủ';
     $template['breadcrumbs'] = [
@@ -24,5 +25,10 @@ class HomeController extends Controller
     ];
 
     return view('table', compact('template'));
+  }
+
+  public function test()
+  {
+    echo "string";
   }
 }

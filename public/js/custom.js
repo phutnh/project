@@ -18,7 +18,5 @@ languageDatatable = {
 
 $.extend(true, $.fn.dataTable.defaults, {
   language: languageDatatable,
-  scrollX: true,
-  scrollCollapse: true,
-  scrollY: "400px"
+  scrollX: true
 });

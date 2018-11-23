@@ -1,5 +1,6 @@
 <?php
 Route::get('', 'HomeController@index')->name('home');
+Route::get('/test', 'HomeController@test')->name('test')->middleware('can:view');
 
 Auth::routes();
 
