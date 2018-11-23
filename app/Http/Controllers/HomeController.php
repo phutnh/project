@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
   public function index()
   {
-    $this->authorize('can-view');
+    // $this->authorize('view');
   	$template['pageHeader'] = 'Quản lý';
     $template['pageDesc'] = 'Trang chủ';
     $template['breadcrumbs'] = [
@@ -29,6 +29,7 @@ class HomeController extends Controller
 
   public function test()
   {
-    echo "string";
+    $this->authorize('can-permission', ['administrator', 'view']);
+    echo " funcction test";
   }
 }

@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Role;
-use App\Models\Permission;
 
 class User extends Authenticatable
 {
@@ -24,11 +23,11 @@ class User extends Authenticatable
   	return $this->belongsTo(Role::class);
   }
 
-  public function hasPermission(Permission $permission)
+  public function hasPermission($permission)
   {
     $role = $this->role();
     $bool = $role->whereHas('permissions', function($query) use ($permission) {
-      $query->where('permissions.name', $permission->name);
+      $query->where('permissions.name', $permission);
     })->first();
     
     return !!$bool;
