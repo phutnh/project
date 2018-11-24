@@ -171,11 +171,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        DHPT\Providers\AppServiceProvider::class,
+        DHPT\Providers\AuthServiceProvider::class,
+        DHPT\Providers\BroadcastServiceProvider::class,
+        DHPT\Providers\EventServiceProvider::class,
+        DHPT\Providers\RouteServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
 
     ],

@@ -96,7 +96,6 @@ if(!function_exists('getLastDayOfMonth'))
 	}
 }
 
-
 if(!function_exists('getCountNotifications'))
 {
 	function getCountNotifications()
@@ -123,5 +122,20 @@ if(!function_exists('sendNotificationsUser'))
     
     $channel = 'notify-messages-action-' . $receiver;
     $pusher->trigger('NotifyUser', $channel, $data);
+	}
+}
+
+if(!function_exists('addLogs'))
+{
+	function addLogs($messages)
+	{
+		$log = [];
+  	$log['messages'] = $messages;
+  	$log['url'] = request()->fullUrl();
+  	$log['method'] = request()->method();
+  	$log['ip'] = request()->ip();
+  	$log['agent'] = request()->header('user-agent');
+  	$log['user_id'] = auth()->check() ? auth()->user()->id : 1;
+  	\DHPT\Models\Logs::create($log);
 	}
 }

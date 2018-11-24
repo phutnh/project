@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace DHPT\Http\Middleware;
 
 use Closure;
 
@@ -10,8 +10,7 @@ class CheckRolePermission
     {
         foreach ($permissions as $permission) {
             if (! $request->user()->hasPermission($permission)) {
-                // abort(404);
-                echo "cannot";
+                return abort(404);
             }
         }
 

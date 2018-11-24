@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace DHPT\Events;
 
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;

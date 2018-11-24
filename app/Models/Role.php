@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace DHPT\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Permission;
+use DHPT\Models\Permission;
 
 class Role extends Model
 {

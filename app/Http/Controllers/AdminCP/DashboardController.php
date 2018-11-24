@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\AdminCP;
+namespace DHPT\Http\Controllers\AdminCP;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use DHPT\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {

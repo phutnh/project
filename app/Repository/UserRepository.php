@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Repository;
-use App\Models\User as UserModel;
+namespace DHPT\Repository;
+use DHPT\Models\User as UserModel;
 use Datatables;
 
 class UserRepository

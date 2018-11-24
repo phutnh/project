@@ -1,3 +1,31 @@
+// Fast click
+window.addEventListener('load', function() {
+  new FastClick(document.body);
+}, false);
+// Ajax function
+function loadAjaxLink(link, className = 'ajax-content') {
+  $.ajax({
+    url: link,
+    success: function (result) {
+      $('.'+className).html(result)
+    },
+    error: function() {
+      alert('Lỗi thực hiện vui lòng truy cập lại sau');
+    }
+  });
+}
+// Ajax load page
+$(document).ajaxStart(function () {
+  Pace.restart();
+});
+// Load home page
+loadAjaxLink('home');
+$('.load-page').click(function (e) {
+  e.preventDefault();
+  var link = $(this).data('link');
+  loadAjaxLink(link);
+});
+
 languageDatatable = {
   "sProcessing":   "Đang xử lý...",
   "sLengthMenu":   "Đang hiển thị _MENU_ dòng",

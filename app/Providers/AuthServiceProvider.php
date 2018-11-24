@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Providers;
+namespace DHPT\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use App\Models\Permission;
+use DHPT\Models\Permission;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -30,17 +30,11 @@ class AuthServiceProvider extends ServiceProvider
         {
             $permissions = Permission::all();
 
-            // foreach ($permissions as $permission) {
-            //     Gate::define($permission->name, function($user) use ($permission) {
-            //         return $user->hasPermission($permission->name);
-            //     });
-            // }
-            
-            Gate::define('can-permission', function($user, ...$params) {
-                foreach ($params as $param) {
-                    return $user->hasPermission($param);
-                }
-            });
+            foreach ($permissions as $permission) {
+                Gate::define($permission->name, function($user) use ($permission) {
+                    return $user->hasPermission($permission->name);
+                });
+            }
         }
     }
 }

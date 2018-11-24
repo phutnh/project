@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace DHPT\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Repository\UserRepository;
+use DHPT\Repository\UserRepository;
 
 class HomeController extends Controller
 {
   public function index()
   {
-    // $this->authorize('view');
-  	$template['pageHeader'] = 'Quản lý';
+    $this->authorize('view');
+    addLogs('Acess table');
+    $template['pageHeader'] = 'Quản lý';
     $template['pageDesc'] = 'Trang chủ';
     $template['breadcrumbs'] = [
       [
@@ -23,13 +24,33 @@ class HomeController extends Controller
         'active' => true
       ],
     ];
-
-    return view('table', compact('template'));
+    return view('home', compact('template'));
   }
 
   public function test()
   {
-    $this->authorize('can-permission', ['administrator', 'view']);
+    $this->authorize('delete');
     echo " funcction test";
+  }
+
+  public function table()
+  {
+    $this->authorize('view');
+    addLogs('Acess table');
+    $template['pageHeader'] = 'Quản lý';
+    $template['pageDesc'] = 'Trang chủ';
+    $template['breadcrumbs'] = [
+      [
+        'name' => 'Quản lý',
+        'link' => '',
+        'active' => false
+      ],
+      [
+        'name' => 'Trang chủ',
+        'link' => '',
+        'active' => true
+      ],
+    ];
+    return view('table', compact('template'));
   }
 }

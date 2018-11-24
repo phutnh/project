@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace DHPT\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\User as UserModel;
+use DHPT\Models\User as UserModel;
 
 class _template extends Controller
 {

@@ -1,6 +1,12 @@
 <?php
-Route::get('', 'HomeController@index')->name('home');
-Route::get('/test', 'HomeController@test')->name('test')->middleware(['permission:administrator,view', 'auth']);
+Route::get('', 'AppController@index')->name('app');
+Route::get('home', 'HomeController@index')->name('home');
+Route::get('table', 'HomeController@table')->name('table');
+
+
+Route::group(['middleware' => 'auth'], function() {
+	Route::get('/test', 'HomeController@test')->name('test')->middleware('permission:delete');
+});
 
 Auth::routes();
 
