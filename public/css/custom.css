@@ -1,7 +1,93 @@
-.dt-nowarp th, td {
+.dt-nowarp th,
+td {
   white-space: nowrap !important;
 }
 
 .no-margin-bottom {
-	margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.checkbox,
+.radio {
+  margin-top: 0;
+}
+
+.checkbox label,
+.radio label {
+	padding-left: 0;
+}
+
+.form-label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px !important;
+  font-weight: 700 !important;
+  padding-left: 0 !important;
+}
+
+.form-row {
+  display: block;
+}
+
+.form-group.has-error .label {
+  font-weight: bold;
+}
+
+.checkbox label:after,
+.radio label:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.checkbox .mc-check,
+.radio .mc-check {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #a9a9a9;
+  border-radius: .25em;
+  width: 1.3em;
+  height: 1.3em;
+  float: left;
+  margin-right: .5em;
+}
+
+.radio .mc-check {
+  border-radius: 50%;
+}
+
+.checkbox .mc-check .mc-check-icon,
+.radio .mc-check .mc-check-icon {
+  position: absolute;
+  font-size: .8em;
+  line-height: 0;
+  top: 50%;
+  left: 10%;
+}
+
+.radio .mc-check .mc-check-icon {
+  margin-left: 0.04em;
+}
+
+.checkbox label input[type="checkbox"],
+.radio label input[type="radio"] {
+  display: none;
+}
+
+.checkbox label input[type="checkbox"]+.mc-check>.mc-check-icon,
+.radio label input[type="radio"]+.mc-check>.mc-check-icon {
+  transform: scale(3) rotateZ(-20deg);
+  opacity: 0;
+  transition: all .3s ease-in;
+}
+
+.checkbox label input[type="checkbox"]:checked+.mc-check>.mc-check-icon,
+.radio label input[type="radio"]:checked+.mc-check>.mc-check-icon {
+  transform: scale(1) rotateZ(0deg);
+  opacity: 1;
+}
+
+.checkbox label input[type="checkbox"]:disabled+.mc-check,
+.radio label input[type="radio"]:disabled+.mc-check {
+  opacity: .5;
 }

@@ -7,6 +7,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/layout.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/skin-blue.min.css') }}">
@@ -32,7 +33,11 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('library/jquery-migrate.min.js') }}"></script>
+<script src="{{ asset('library/polyfiller.js') }}"></script>
+<script src="{{ asset('library/formcfg-vi.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/select2.min.js') }}"></script>
 <script src="{{ asset('js/pace.min.js') }}"></script>
 <script src="{{ asset('js/fastclick.js') }}"></script>
 <script src="{{ asset('js/adminlte.min.js') }}"></script>

@@ -1,3 +1,36 @@
+// Replace UI form
+$(function() {
+  webshim.activeLang('vi');
+
+  webshim.setOptions("forms", {
+    "lazyCustomMessages": true,
+    "replaceValidationUI": true,
+    "addValidators": true,
+    iVal: {
+      sel: '.ws-validate',
+      handleBubble: 'hide', // hide error bubble
+      fx: "slide",
+      //add bootstrap specific classes
+      errorMessageClass: 'help-block',
+      successWrapperClass: 'has-success',
+      errorWrapperClass: 'has-error',
+
+      //add config to find right wrapper
+      fieldWrapper: '.form-group'
+    }
+  });
+
+  webshim.setOptions("forms-ext", {
+    "replaceUI": true,
+    "widgets": {
+      "openOnFocus": true,
+      "classes": "hide-spinbtns"
+    }
+  });
+
+  webshims.polyfill('forms forms-ext');
+});
+
 // Fast click
 window.addEventListener('load', function() {
   new FastClick(document.body);
@@ -7,19 +40,22 @@ function loadAjaxLink(link, className = 'ajax-content') {
   $.ajax({
     url: link,
     success: function (result) {
-      $('.'+className).html(result)
+      $('.'+className).html(result);
+      $('.'+className).htmlPolyfill(result);
+      $('.select2').select2({});
     },
     error: function() {
       alert('Lỗi thực hiện vui lòng truy cập lại sau');
     }
   });
 }
+// Select 2
+$('.select2').select2({});
 // Ajax load page
 $(document).ajaxStart(function () {
   Pace.restart();
 });
-// Load home page
-loadAjaxLink('home');
+// Ajax click event
 $('.load-page').click(function (e) {
   e.preventDefault();
   var link = $(this).data('link');
@@ -48,3 +84,6 @@ $.extend(true, $.fn.dataTable.defaults, {
   language: languageDatatable,
   scrollX: true
 });
+
+// Load home page
+loadAjaxLink('table');

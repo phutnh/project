@@ -1,5 +1,5 @@
 @include('layouts.shared.breadcrumb')
-<section class="content container-fluid"> 
+<section class="content container-fluid">
   <div class="box box-primary">
     <div class="box-header with-border">
       <h3 class="box-title">Title</h3>
@@ -9,24 +9,101 @@
       </div>
     </div>
     <div class="box-body">
-      <form class="form-horizontal">
-        <div class="box-body">
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-10">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+      <form class="ws-validate">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Name</label>
+                <input type="text" class="form-control" id="form[name]" name="form[name]" placeholder="Enter name" required data-errormessage='{"valueMissing": "Please enter your name adress.", "typeMismatch": "Your name is not correct."}'>
+            </div>
+            <div class="form-group">
+              <label>Email address</label>
+                <input type="email" class="form-control" id="form[email]" name="form[email]" placeholder="Enter email" required data-errormessage='{"valueMissing": "Please enter your email adress.", "typeMismatch": "Your email is not correct."}'>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" id="form[password]" name="form[password]" placeholder="Password" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" id="form[date]" name="form[date]" class="form-control" placeholder="from" />
+            </div>
+            <div class="form-group">
+              <label>Date from</label>
+              <input data-dependent-validation='{"from": "form[date-to]", "prop": "max"}' type="date" id="form[date-from]" name="form[date-from]" class="form-control" placeholder="from" />
+            </div>
+            <div class="form-group">
+              <label>Date to</label>
+              <input data-dependent-validation='{"from": "form[date-from]", "prop": "min"}' type="date" id="form[date-to]" name="form[date-to]" class="form-control" placeholder="to" />
+            </div>
+            <div class="form-group">
+              <label>File input</label>
+              <input type="file" id="form[file]" name="form[file]" required>
+            </div>
+            <div class="form-group">
+              <label>Form group</label>
+              <div class="input-group">
+                <input type="text" class="form-control" required>
+                <span class="input-group-addon">.00</span>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Password</label>
-            <div class="col-sm-10">
-              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          <div class="col-md-6">
+            <div class="checkbox form-group">
+              <label class="form-label">Gender</label>
+              <div class="form-row">
+                <label>
+                  <input type="checkbox" required name="form[checkbox]" id="form[checkbox]"> 
+                  <span class="mc-check"><i class="mc-check-icon glyphicon glyphicon-ok"></i></span>
+                  Men
+                </label>
+                <label>
+                  <input type="checkbox" required name="form[checkbox2]" id="form[checkbox2]">
+                  <span class="mc-check"><i class="mc-check-icon glyphicon glyphicon-ok"></i></span>
+                  Wonmen
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Choose radio</label>
+                <input type="text" class="form-control" id="form[radiochoose]" name="form[radiochoose]" placeholder="required if checkbox is checked" data-dependent-validation='{"from": "form[checkbox]", "prop": "required"}'>
+            </div>
+            <div class="form-group radio">
+              <label class="form-label">Radio</label>
+              <div class="form-row">
+                <label>
+                  <input type="radio" required name="form[radio]">
+                  <span class="mc-check"><i class="mc-check-icon glyphicon glyphicon-ok"></i></span>
+                  Men
+                </label>
+                <label>
+                  <input type="radio" required name="form[radio]">
+                  <span class="mc-check"><i class="mc-check-icon glyphicon glyphicon-ok"></i></span>
+                  Wonmen
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Select</label>
+              <select class="form-control select2" id="form[select]" name="form[select]" required style="width: 100%;">
+                <option value="">......</option>
+                <option>option 1</option>
+                <option>option 2</option>
+                <option>option 3</option>
+                <option>option 4</option>
+                <option>option 5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Textarea</label>
+              <textarea class="form-control" id="form[textarea]" name="form[textarea]" rows="3" placeholder="Enter ..." required></textarea>
             </div>
           </div>
         </div>
         <div class="box-footer">
-          <button type="submit" class="btn btn-default">Cancel</button>
-          <button type="submit" class="btn btn-info pull-right">Sign in</button>
+          <button type="reset" class="btn btn-default">Reset</button>
+          <button type="submit" class="btn btn-cancel">Cancel</button>
+          <button type="submit" class="btn btn-info">Submit</button>
         </div>
       </form>
     </div>

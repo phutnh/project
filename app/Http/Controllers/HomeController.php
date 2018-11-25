@@ -29,7 +29,7 @@ class HomeController extends Controller
 
   public function test()
   {
-    $this->authorize('delete');
+    // $this->authorize('delete'); 
     echo " funcction test";
   }
 
@@ -51,6 +51,6 @@ class HomeController extends Controller
         'active' => true
       ],
     ];
-    return view('table', compact('template'));
+    return view('form', compact('template'));
   }
 }

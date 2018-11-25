@@ -5,7 +5,7 @@ Route::get('table', 'HomeController@table')->name('table');
 
 
 Route::group(['middleware' => 'auth'], function() {
-	Route::get('/test', 'HomeController@test')->name('test')->middleware('permission:delete');
+	Route::get('/test', 'HomeController@test')->name('test')->middleware('one.permission:delete,view');
 });
 
 Auth::routes();
