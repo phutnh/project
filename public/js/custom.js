@@ -24,13 +24,36 @@ $(function() {
     "replaceUI": true,
     "widgets": {
       "openOnFocus": true,
-      "classes": "hide-spinbtns"
+      "classes": "hide-spinbtns hide-dropdownbtn"
     }
   });
 
   webshims.polyfill('forms forms-ext');
 });
-
+// Custom choose file
+function bs_input_file() {
+  $(".input-file").before(
+    function() {
+      if ( ! $(this).prev().hasClass('input-ghost') ) {
+        var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
+        element.attr("name",$(this).attr("name"));
+        element.attr("required",$(this).attr("required"));
+        element.change(function(){
+          element.next(element).find('input').val((element.val()).split('\\').pop());
+        });
+        $(this).find("button.btn-choose").click(function(){
+          element.click();
+        });
+        $(this).find('input').css("cursor","pointer");
+        $(this).find('input').mousedown(function() {
+          $(this).parents('.input-file').prev().click();
+          return false;
+        });
+        return element;
+      }
+    }
+  );
+}
 // Fast click
 window.addEventListener('load', function() {
   new FastClick(document.body);
@@ -41,8 +64,6 @@ function loadAjaxLink(link, className = 'ajax-content') {
     url: link,
     success: function (result) {
       $('.'+className).html(result);
-      $('.'+className).htmlPolyfill(result);
-      $('.select2').select2({});
     },
     error: function() {
       alert('Lỗi thực hiện vui lòng truy cập lại sau');
@@ -86,4 +107,6 @@ $.extend(true, $.fn.dataTable.defaults, {
 });
 
 // Load home page
-loadAjaxLink('table');
+$(function() {
+  bs_input_file();
+});

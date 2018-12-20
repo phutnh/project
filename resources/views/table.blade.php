@@ -1,5 +1,7 @@
+@extends('layouts.app')
+@section('content')
 @include('layouts.shared.breadcrumb')
-<section class="content container-fluid"> 
+<section class="content"> 
 	<div class="box box-primary no-margin-bottom">
 	  <div class="box-header with-border">
 	    <h3 class="box-title">Title</h3>
@@ -441,6 +443,9 @@
 	  </div>
 	</div>
 </section>
+@endsection
+@section('scripts')
 <script type="text/javascript">
 	$('#example1').DataTable();
 </script>
+@endsection

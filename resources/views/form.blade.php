@@ -1,6 +1,8 @@
+@extends('layouts.app')
+@section('content')
 @include('layouts.shared.breadcrumb')
-<section class="content container-fluid">
-  <div class="box box-primary">
+<section class="content">
+  <div class="box box-primary no-margin-bottom">
     <div class="box-header with-border">
       <h3 class="box-title">Title</h3>
       <div class="box-tools pull-right">
@@ -38,7 +40,12 @@
             </div>
             <div class="form-group">
               <label>File input</label>
-              <input type="file" id="form[file]" name="form[file]" required>
+              <div class="input-group input-file" name="form[file]">
+                <input type="text" class="form-control" placeholder='Choose a file...' required />
+                <span class="input-group-btn">
+                 <button class="btn btn-default btn-choose" type="button">Choose</button>
+                </span>
+              </div>
             </div>
             <div class="form-group">
               <label>Form group</label>
@@ -109,3 +116,4 @@
     </div>
   </div>
 </section>
+@endsection

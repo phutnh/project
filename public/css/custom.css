@@ -91,3 +91,11 @@ td {
 .radio label input[type="radio"]:disabled+.mc-check {
   opacity: .5;
 }
+
+.ws-validate .has-error .select2-selection, .ws-validate .has-error .input-file .btn-default {
+	border-color: #dd4b39;
+}
+
+.ws-validate .has-success .select2-selection, .ws-validate .has-success .input-file .btn-default {
+	border-color: #00a65a;
+}

@@ -3,13 +3,12 @@
 namespace DHPT\Http\Controllers;
 use Illuminate\Http\Request;
 use DHPT\Repository\UserRepository;
+use Auth;
 
 class HomeController extends Controller
 {
   public function index()
   {
-    $this->authorize('view');
-    addLogs('Acess table');
     $template['pageHeader'] = 'Quản lý';
     $template['pageDesc'] = 'Trang chủ';
     $template['breadcrumbs'] = [
@@ -27,16 +26,21 @@ class HomeController extends Controller
     return view('home', compact('template'));
   }
 
-  public function test()
+  public function one()
   {
     // $this->authorize('delete'); 
-    echo " funcction test";
+    echo " funcction test one";
+  }
+
+  public function many()
+  {
+    // $this->authorize('delete'); 
+    echo " funcction test many";
   }
 
   public function table()
   {
     $this->authorize('view');
-    addLogs('Acess table');
     $template['pageHeader'] = 'Quản lý';
     $template['pageDesc'] = 'Trang chủ';
     $template['breadcrumbs'] = [
