@@ -17,16 +17,6 @@ if (! function_exists('uploadFileData')) {
 	}
 }
 
-if(!function_exists('formatDateData'))
-{
-	function formatDateData($date, $format = 'd-m-Y')
-	{
-		if($date == null)
-			return date($format, strtotime(date($format)));
-		return date($format, strtotime($date));
-	}
-}
-
 if(!function_exists('formatMoneyData'))
 {
 	function formatMoneyData($money)

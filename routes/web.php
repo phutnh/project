@@ -1,8 +1,5 @@
 <?php
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('home', 'HomeController@index')->name('home');
-Route::get('table', 'HomeController@table')->name('table');
-
 
 Route::group(['middleware' => 'auth'], function() {
 	Route::get('/many', 'HomeController@many')->name('many')->middleware('many.permission:delete,approve');
@@ -14,4 +11,12 @@ Auth::routes();
 //Admin CP
 Route::group(['prefix' => 'admin/cpanel', 'namespace' => 'AdminCP', 'middleware' => 'auth'], function() {
   Route::get('/', 'DashboardController@dashboard')->name('admin.dashboard');
+});
+
+// Route test
+Route::group(['prefix' => 'test'], function() {
+	Route::get('home', 'TestController@index')->name('test.home');
+	Route::get('table', 'TestController@table')->name('test.table');
+	Route::get('form', 'TestController@form')->name('test.form');
+	Route::post('ajax', 'TestController@ajax')->name('test.ajax');
 });

@@ -18,8 +18,8 @@ class UserRepository
 		$this->userModel->create();
 	}
 
-	public function getDataTable()
+	public function get()
 	{
-		
+		return Datatables::of($this->userModel->get())->make(true);
 	}
 }

@@ -76,6 +76,12 @@ $('.select2').select2({});
 $(document).ajaxStart(function () {
   Pace.restart();
 });
+// Ajax setup
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
 // Ajax click event
 $('.load-page').click(function (e) {
   e.preventDefault();
@@ -84,16 +90,16 @@ $('.load-page').click(function (e) {
 });
 
 languageDatatable = {
-  "sProcessing":   "Đang xử lý...",
-  "sLengthMenu":   "Đang hiển thị _MENU_ dòng",
-  "sZeroRecords":  "Không tìm thấy dòng nào phù hợp",
-  "sInfo":         "Đang hiển thị _START_ đến _END_ trong tổng số _TOTAL_ dòng",
-  "sInfoEmpty":    "Đang hiển thị 0 đến 0 trong tổng số 0 dòng",
-  "sInfoFiltered": "(tìm kiếm từ _MAX_ dòng)",
-  "sInfoPostFix":  "",
-  "sSearch":       "Tìm kiếm:",
-  "sUrl":          "",
-  "oPaginate": {
+  sProcessing:   "Đang xử lý...",
+  sLengthMenu:   "Đang hiển thị _MENU_ dòng",
+  sZeroRecords:  "Không tìm thấy dòng nào phù hợp",
+  sInfo:         "Đang hiển thị _START_ đến _END_ trong tổng số _TOTAL_ dòng",
+  sInfoEmpty:    "Đang hiển thị 0 đến 0 trong tổng số 0 dòng",
+  sInfoFiltered: "(tìm kiếm từ _MAX_ dòng)",
+  sInfoPostFix:  "",
+  sSearch:       "Tìm kiếm:",
+  sUrl:          "",
+  oPaginate: {
       "sFirst":    "Đầu",
       "sPrevious": "Trước",
       "sNext":     "Tiếp",
@@ -103,10 +109,19 @@ languageDatatable = {
 
 $.extend(true, $.fn.dataTable.defaults, {
   language: languageDatatable,
-  scrollX: true
+  scrollX: true,
+  searching: true,
+  autoWidth: true,
+  lengthChange: false,
+  processing: true,
+  serverSide: true
 });
+
 
 // Load home page
 $(function() {
   bs_input_file();
+  $('[title]').tooltip({
+    placement: 'auto',
+  }); 
 });

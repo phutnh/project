@@ -99,3 +99,28 @@ td {
 .ws-validate .has-success .select2-selection, .ws-validate .has-success .input-file .btn-default {
 	border-color: #00a65a;
 }
+
+.box-form-inline .input-group {
+  margin-bottom: 5px;
+}
+
+.box-form-inline.right {
+  text-align: right;
+}
+
+#box-filter {
+  clear: both;
+  margin-bottom: 5px;
+}
+
+/* Tooltip */
+.tooltip > .tooltip-inner {
+  background-color: #3c8dbc;
+  color: #FFFFFF;
+  max-width: none;
+  white-space: nowrap;
+}
+
+/* Tooltip on top */.tooltip.top > .tooltip-arrow {
+  border-top: 5px solid #3c8dbc;
+}

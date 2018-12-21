@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{{ config('app.name') }}</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
@@ -13,6 +14,7 @@
   <link rel="stylesheet" href="{{ asset('css/skin-blue.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/pace.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/datatables.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/jquery.tagsinput.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
   @yield('styles')
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,8 +43,9 @@
 <script src="{{ asset('js/pace.min.js') }}"></script>
 <script src="{{ asset('js/fastclick.js') }}"></script>
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
-@yield('scripts')
 <script src="{{ asset('js/datatables.min.js') }}"></script>
+<script src="{{ asset('js/jquery.tagsinput.min.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
+@yield('scripts')
 </body>
 </html>
